@@ -8,7 +8,7 @@ const Home = () => {
     queryKey: ["books"],
     queryFn: async () => {
       const response = await http.get<Book[]>(
-        "http://localhost:3000/book/all"
+        "/book/all"
       );
       return response.data;
     },

@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  # Servicio para la API
+  nestjs-app:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    container_name: nestjs-app
+    ports:
+      - "3001:3000"  # Mapear puerto interno 3000 al puerto 3001 del host
+    environment:
+      DATABASE_URL: "postgresql://postgres:HHtZnxjSfYORBPnJAhmqozKpvoPKklHi@junction.proxy.rlwy.net:17614/railway"
+    networks:
+      - app-network
+
+  # Servicio para el Frontend
+  react-vite-app:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: react-vite-app
+    ports:
+      - "3000:3000" 
+    environment:
+      VITE_BASE_URL: "http://nestjs-app:3001"  # Usar el nombre del servicio como URL del backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

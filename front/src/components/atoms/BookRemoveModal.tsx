@@ -23,7 +23,7 @@ export function BookRemoveModal({ id }: { id: number }) {
     mutationKey: ["books", id],
     mutationFn: async () => {
       const response = await http.delete(
-        `http://localhost:3000/book/remove/${id}`
+        `/book/remove/${id}`
       );
       return response.data;
     },
