@@ -49,7 +49,7 @@ export function BookRemoveModal({ id }: { id: number }) {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>¿Esttas seguro?</AlertDialogTitle>
+          <AlertDialogTitle>¿Estas seguro?</AlertDialogTitle>
           <AlertDialogDescription>
             Esta acción no se puede deshacer. ¿Estás seguro de que quieres
             eliminar este libro?

@@ -16,6 +16,10 @@ RUN npm i -g serve
 # Copiar archivos
 COPY . .
 
+# Pasar la variable de entorno en tiempo de compilación
+ARG VITE_BASE_URL
+ENV VITE_BASE_URL=${VITE_BASE_URL}
+
 # Compilar
 RUN npm run build
 

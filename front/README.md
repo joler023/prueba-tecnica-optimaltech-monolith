@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Frontend Prueba Tecnica Optimal tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta aplicación es un CRUD (Crear, Leer, Actualizar, Eliminar) de libros.
+Permite gestionar una colección de libros mediante operaciones básicas de CRUD.
 
-Currently, two official plugins are available:
+## Pasos para correr el proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Navegar al directorio del proyecto**:
+  ```bash
+  cd nombre-del-repositorio
+  ```
+2. **Instalar las dependencias**:
+  ```bash
+  npm install
+  ```
+3. **Iniciar el servidor de desarrollo**:
+  ```bash
+  npm run dev
+  ```
+4. **Abrir el navegador y acceder a la aplicación**:
+  - La aplicación estará disponible en `http://localhost:5173`.
 
-## Expanding the ESLint configuration
+Estos pasos te permitirán tener el proyecto corriendo en tu entorno local.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Esta aplicación puede incluir dependencias como React como framework y Vite como Builder
 
-- Configure the top-level `parserOptions` property like this:
+## Pasos para hacer build y correr el proyecto en producción
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Construir el proyecto**:
+  ```bash
+  npm run build
+  ```
+  - Esto generará una carpeta `dist` con los archivos optimizados para producción.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. **Servir los archivos estáticos**:
+  - Puedes usar un servidor estático como `serve` para servir los archivos:
+  ```bash
+  npm install -g serve
+  serve -s dist
+  ```
+  - La aplicación estará disponible en `http://localhost:3000`.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Estos pasos te permitirán desplegar y correr el proyecto en un entorno de producción.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Cabe aclarar que este proyecto genera en su build una carpeta de archivos estaticos, por tanto se puede subir a servicios estaticas como S3 de AWS

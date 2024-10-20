@@ -18,11 +18,11 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
+      args:
+        VITE_BASE_URL: "http://localhost:3001"
     container_name: react-vite-app
     ports:
       - "3000:3000" 
-    environment:
-      VITE_BASE_URL: "http://nestjs-app:3001"  # Usar el nombre del servicio como URL del backend
     networks:
       - app-network
 
